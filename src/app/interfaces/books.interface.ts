@@ -1,3 +1,5 @@
+import { Model } from "mongoose";
+
 export interface books{
     title: string,
     author: string,
@@ -7,3 +9,9 @@ export interface books{
     copies: number,
     available: boolean
   }
+
+
+export interface BookModel extends Model<books> {
+  updateBooks(bookId: string, quantity: string): Promise<books>;
+}
+

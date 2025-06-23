@@ -5,9 +5,9 @@ import { booksRoutes } from './app/controllers/books.controller'
 const app : Application = express()
 
 
-app.use("/", booksRoutes)
 
 app.use(express.json())
+app.use('/', booksRoutes)
 
 
 

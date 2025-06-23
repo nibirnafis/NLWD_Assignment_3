@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose"
-import { books } from "../interfaces/books.interface"
+import { BookModel, books } from "../interfaces/books.interface"
 
 const bookSchema = new Schema<books>(
   {
@@ -17,5 +17,13 @@ const bookSchema = new Schema<books>(
   }
 )
 
+bookSchema.statics.updateBooks = async function(bookId, quantity){
+  const book = Book.find({ _id: bookId })
+  console.log(book)
+  // !book ?  throw new Error("no book found") : book
+  return book
+}
 
-export const Book = model("Book", bookSchema)
+
+
+export const Book = model<books, BookModel>("Book", bookSchema)
