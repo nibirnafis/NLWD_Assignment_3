@@ -104,6 +104,7 @@ booksRoutes.post('/api/books', async (req : Request, res : Response) => {
       console.log(borrowedBook) */
 
       const borobook = await Book.updateBooks(bookId, quantity)
+      console.log(borobook)
     
       res.status(201).json({
         success: true,

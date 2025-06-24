@@ -19,8 +19,6 @@ const bookSchema = new Schema<books>(
 
 bookSchema.statics.updateBooks = async function(bookId: string, quantity: number){
   const book = Book.find({ _id: bookId })
-  console.log(book)
-  // !book ?  throw new Error("no book found") : book
   return book
 }
 
